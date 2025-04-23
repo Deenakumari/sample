@@ -1,8 +1,8 @@
 #!bin/bash
 
 #declaring variable
-PERSON1=Ammu #no space between = and value
-PERSON2=Madhu
+PERSON1=$1 #no space between = and value
+PERSON2=$2
 
 #referring variable
 echo "$PERSON1:: Hello $PERSON2, How are you?"
