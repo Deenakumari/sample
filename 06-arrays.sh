@@ -8,3 +8,5 @@ MOVIES=("RRR" "DJTILLU" "MURARI")
 # list always starts with 0.
 
 echo "First movie is:${MOVIES[0]}"
+echo "Second move is:${MOVIES[1]}"
+echo "First movie is:${MOVIES[&]}"
