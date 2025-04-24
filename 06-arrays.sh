@@ -9,4 +9,4 @@ MOVIES=("RRR" "DJTILLU" "MURARI")
 
 echo "First movie is:${MOVIES[0]}"
 echo "Second move is:${MOVIES[1]}"
-echo "First movie is:${MOVIES[&]}"
+echo "First movie is:${MOVIES[@]}"
