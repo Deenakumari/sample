@@ -13,10 +13,10 @@ VALIDATE(){
    # echo "what are you doing: $2"
    if [ $1 -ne 0 ]
    then 
-       echo "$2...failure"
+       echo -e "$2...$R failure $N"
        exit 1
     else 
-        echo "$2...sucess"
+        echo -e "$2...$G sucess $N"
     fi    
 }
 
@@ -37,6 +37,7 @@ do
   then
       echo -e "$i already installed...$Y skipping..$N"
    else
-       echo "$i not installed.. need to install"   
+       dnf install $i -y &>>$LOGFILE
+       VALIDATE $? "installation of $i"   
    fi
 done  
