@@ -7,6 +7,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+echo "please enter DB password:"
+read -s 
 
 VALIDATE(){
    # echo "exit status: $1"
@@ -51,10 +53,10 @@ VALIDATE $? "start mysql server"
 # VALIDATE $? "setting up the root password"
 
 # Below code will be useful for idempotent nature
-mysql -h db.deena.fun -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
+mysql -h db.deena.fun -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 if [ $? -ne 0 ]
 then
-    mysql_secure_installation --set-root-pass ExpenseApp@1 &>>LOGFILE
+    mysql_secure_installation --set-root-pass ${mysql_root_password} &>>LOGFILE
     VALIDATE $? "setting up the root password"
 else
     echo -e "mysql root password is already setup...$Y skipping $N"   
